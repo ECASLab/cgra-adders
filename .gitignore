@@ -1,0 +1,14 @@
+# Ignored directories
+.env/
+ddc/
+models/
+plots/
+reports/
+sdf/
+synth/
+tmp/
+# Ignored files
+report_summary.csv
+tools.sh
+# Ignored softlinks
+models
