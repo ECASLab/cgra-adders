@@ -7,8 +7,12 @@ reports/
 sdf/
 synth/
 tmp/
+__pycache__/
 # Ignored files
 report_summary.csv
+results.xml
 tools.sh
-# Ignored softlinks
+# Directories
+src/sim_build/
+# Ignored soft links
 models
