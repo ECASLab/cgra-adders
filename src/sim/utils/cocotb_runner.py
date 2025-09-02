@@ -23,9 +23,9 @@ Notes
 """
 import os
 
-from cocotb_test.simulator import run
-
 from typing import Any
+
+from cocotb_test.simulator import run
 
 
 def run_cocotb(dut_name: str, test_name: str) -> None:
