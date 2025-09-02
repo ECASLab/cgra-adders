@@ -10,6 +10,8 @@
 //                a, b, and carry-in.
 // License      : MIT License (see LICENSE file for details)
 //----------------------------------------------------------------------------
+`timescale 1ns / 1ps
+
 module full_adder (
   // 1-bit input operand A
   input  wire a,

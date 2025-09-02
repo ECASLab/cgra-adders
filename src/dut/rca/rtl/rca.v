@@ -10,6 +10,8 @@
 //                adder cells. Propagates carry from LSB to MSB sequentially.
 // License      : MIT License (see LICENSE file for details)
 //----------------------------------------------------------------------------
+`timescale 1ns / 1ps
+
 module rca #(
   // Width of the adder
   parameter N = 8

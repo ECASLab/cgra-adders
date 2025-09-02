@@ -10,6 +10,8 @@
 //               delay by computing intermediate group carries in parallel.
 // License     : MIT License (see LICENSE file for details)
 //----------------------------------------------------------------------------
+`timescale 1ns / 1ps
+
 `include "cla4.v"
 
 module cla #(
