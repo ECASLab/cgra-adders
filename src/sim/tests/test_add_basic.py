@@ -64,7 +64,7 @@ async def test_adder_basic(dut: HierarchyObject) -> None:
         If the observed outputs do not match the reference model.
     """
     # Extract configuration
-    N: int = CONFIG["parameters"]["N"]
+    N: int = dut.N.value
     ports: dict[str, str] = CONFIG["ports"]
 
     # Test infrastructure

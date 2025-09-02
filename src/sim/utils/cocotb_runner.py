@@ -21,8 +21,9 @@ Notes
         Verilog parameters to pass at compile-time.
 - Invokes the simulator using ``make`` and a cocotb-compatible Makefile.
 """
-import subprocess
 import os
+
+from cocotb_test.simulator import run
 
 from typing import Any
 
@@ -66,23 +67,11 @@ def run_cocotb(dut_name: str, test_name: str) -> None:
     # Build list of RTL sources
     rtl_files = [os.path.join("dut", dut_name, f) for f in cfg["rtl_files"]]
 
-    # Build parameter string: "top.param=value top.param=value ..."
-    parameters = " ".join(
-        f'{cfg["top_module"]}.{param}={val}'
-        for param, val in cfg.get("parameters", {}).items()
-    )
+    # Get parameter dictionary
+    parameters = cfg.get("parameters", {})
 
-    # Assemble Makefile command
-    cmd_vals = [
-        "make",
-        f'TOPLEVEL={cfg["top_module"]}',
-        f"MODULE={test_name}",
-        f'EXTRA_COMPILE_ARGS="{parameters}"',
-        f'VERILOG_SOURCES="{" ".join(rtl_files)}"',
-    ]
-    cmd = " ".join(cmd_vals)
-
-    print(f"Running cocotb with command: {cmd}")
-
-    # Execute command in shell
-    subprocess.run(cmd, shell=True, check=True)
+    # Run cocotb simulation
+    run(verilog_sources=rtl_files,
+        toplevel=cfg["top_module"],
+        module=test_name,
+        parameters=parameters)
